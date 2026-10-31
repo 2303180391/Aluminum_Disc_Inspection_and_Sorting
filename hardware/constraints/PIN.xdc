@@ -1,0 +1,65 @@
+# Z100 / XC7Z035FFG900-2 constraints for the migrated ch49 design.
+# Source cross-check: Z100 official pin table, master XDC, and example 26_ov5640_hdmi.
+
+# OV5640 camera interface. The Z100 camera connector selects its onboard XCLK,
+# so the legacy ov5640_xclk output is intentionally not brought to a package pin.
+create_clock -period 13.888 -name cam_pclk [get_ports ov5640_pclk_0]
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets ov5640_pclk_0_IBUF]
+
+set_property -dict {PACKAGE_PIN T23 IOSTANDARD LVCMOS33} [get_ports {ov5640_data_0[0]}]
+set_property -dict {PACKAGE_PIN V29 IOSTANDARD LVCMOS33} [get_ports {ov5640_data_0[1]}]
+set_property -dict {PACKAGE_PIN T22 IOSTANDARD LVCMOS33} [get_ports {ov5640_data_0[2]}]
+set_property -dict {PACKAGE_PIN U27 IOSTANDARD LVCMOS33} [get_ports {ov5640_data_0[3]}]
+set_property -dict {PACKAGE_PIN V23 IOSTANDARD LVCMOS33} [get_ports {ov5640_data_0[4]}]
+set_property -dict {PACKAGE_PIN U25 IOSTANDARD LVCMOS33} [get_ports {ov5640_data_0[5]}]
+set_property -dict {PACKAGE_PIN W24 IOSTANDARD LVCMOS33} [get_ports {ov5640_data_0[6]}]
+set_property -dict {PACKAGE_PIN V26 IOSTANDARD LVCMOS33} [get_ports {ov5640_data_0[7]}]
+set_property -dict {PACKAGE_PIN U22 IOSTANDARD LVCMOS33} [get_ports ov5640_pclk_0]
+set_property -dict {PACKAGE_PIN W30 IOSTANDARD LVCMOS33} [get_ports ov5640_href_0]
+set_property -dict {PACKAGE_PIN W29 IOSTANDARD LVCMOS33} [get_ports ov5640_vsync_0]
+set_property -dict {PACKAGE_PIN V22 IOSTANDARD LVCMOS33} [get_ports ov5640_pwdn_0]
+set_property -dict {PACKAGE_PIN V24 IOSTANDARD LVCMOS33} [get_ports ov5640_rst_n_0]
+set_property -dict {PACKAGE_PIN W25 IOSTANDARD LVCMOS33} [get_ports ov5640_iic_scl_0]
+set_property -dict {PACKAGE_PIN W26 IOSTANDARD LVCMOS33} [get_ports ov5640_iic_sda_0]
+set_property PULLUP true [get_ports ov5640_iic_scl_0]
+set_property PULLUP true [get_ports ov5640_iic_sda_0]
+
+# MS7210 HDMI transmitter control pins (1.8 V bank).
+set_property -dict {PACKAGE_PIN F14 IOSTANDARD LVCMOS18} [get_ports hdmi_rst_n]
+set_property -dict {PACKAGE_PIN D16 IOSTANDARD LVCMOS18} [get_ports hdmi_iic_scl]
+set_property -dict {PACKAGE_PIN C16 IOSTANDARD LVCMOS18} [get_ports hdmi_iic_sda]
+set_property DRIVE 12 [get_ports hdmi_iic_scl]
+
+# MS7210 parallel RGB input pins (3.3 V bank).
+set_property -dict {PACKAGE_PIN U26 IOSTANDARD LVCMOS33} [get_ports hdmi_clk]
+set_property -dict {PACKAGE_PIN U30 IOSTANDARD LVCMOS33} [get_ports hdmi_de]
+set_property -dict {PACKAGE_PIN R21 IOSTANDARD LVCMOS33} [get_ports hdmi_hs]
+set_property -dict {PACKAGE_PIN P21 IOSTANDARD LVCMOS33} [get_ports hdmi_vs]
+
+set_property -dict {PACKAGE_PIN T30 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[0]}]
+set_property -dict {PACKAGE_PIN T28 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[1]}]
+set_property -dict {PACKAGE_PIN R28 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[2]}]
+set_property -dict {PACKAGE_PIN R25 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[3]}]
+set_property -dict {PACKAGE_PIN P30 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[4]}]
+set_property -dict {PACKAGE_PIN P29 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[5]}]
+set_property -dict {PACKAGE_PIN N29 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[6]}]
+set_property -dict {PACKAGE_PIN R26 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[7]}]
+set_property -dict {PACKAGE_PIN W28 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[8]}]
+set_property -dict {PACKAGE_PIN U29 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[9]}]
+set_property -dict {PACKAGE_PIN T29 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[10]}]
+set_property -dict {PACKAGE_PIN R30 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[11]}]
+set_property -dict {PACKAGE_PIN T25 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[12]}]
+set_property -dict {PACKAGE_PIN P24 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[13]}]
+set_property -dict {PACKAGE_PIN T24 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[14]}]
+set_property -dict {PACKAGE_PIN T27 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[15]}]
+set_property -dict {PACKAGE_PIN R27 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[16]}]
+set_property -dict {PACKAGE_PIN P25 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[17]}]
+set_property -dict {PACKAGE_PIN P26 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[18]}]
+set_property -dict {PACKAGE_PIN P28 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[19]}]
+set_property -dict {PACKAGE_PIN N27 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[20]}]
+set_property -dict {PACKAGE_PIN N28 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[21]}]
+set_property -dict {PACKAGE_PIN N26 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[22]}]
+set_property -dict {PACKAGE_PIN V27 IOSTANDARD LVCMOS33} [get_ports {hdmi_data[23]}]
+
+set_property DRIVE 12 [get_ports {hdmi_clk hdmi_de hdmi_hs hdmi_vs hdmi_data[*]}]
+set_property SLEW FAST [get_ports {hdmi_clk hdmi_de hdmi_hs hdmi_vs hdmi_data[*]}]

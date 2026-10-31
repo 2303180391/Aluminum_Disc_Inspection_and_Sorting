@@ -1,0 +1,48 @@
+{
+  "status": "PASS_WITH_DOCUMENTED_LIMITS",
+  "source_release": "E:\\competition_best\\best_arm5_20261029",
+  "hardware": {
+    "rtl_files": 55,
+    "standalone_ip_xci": 9,
+    "constraints": 3,
+    "bd_config": 1,
+    "bd_recreation": "official Tcl with original resolved AXIS sidebands pinned",
+    "project_from_scratch": "PASS",
+    "ip_output_regeneration": "PASS",
+    "full_synthesis_implementation_rerun": false
+  },
+  "firmware": {
+    "bsp_libraries_rebuilt_from_source": true,
+    "application_compile_and_link": "PASS",
+    "symbols_generated_from_new_elf": true
+  },
+  "gui": {
+    "parser_assertions": 44,
+    "control_assertions": 120,
+    "build": "PASS",
+    "app_launched": false
+  },
+  "rtl": {
+    "tests": 5,
+    "result": "PASS"
+  },
+  "runtime_packaging": {
+    "result": "PASS",
+    "test_scope": "offline fixture using original release bit/XSA with newly rebuilt ELF; not new hardware validation"
+  },
+  "model": {
+    "unique_parameter_bin_files": 40,
+    "parameter_bytes": 8685312
+  },
+  "source_file_identity": {
+    "files_checked": 833,
+    "result": "PASS"
+  },
+  "board_connected": false,
+  "serial_port_opened": false,
+  "limits": [
+    "Full place-and-route was not rerun; a new build must pass timing and on-board checks.",
+    "Current fixed BSP headers describe the unchanged original hardware map. Regenerate BSP from a new XSA if changing hardware.",
+    "Historical helper tests may require their original environment; the five RTL and two C# test entries above were actually run."
+  ]
+}
